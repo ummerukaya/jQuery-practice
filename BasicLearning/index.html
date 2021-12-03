@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <div id="animatedDiv">
+            <h1>This a div</h1>
+        </div>
+        <button id="btn1">Show a div</button>
+    </div>
+
+    <div>
+        <div id="animatedDiv2">
+            <p>small div</p>
+        </div>
+        <button id="btn2">make the div big</button>
+    </div>
+
+    <div id="parent">
+        <p>click this to align the list</p>
+        <ul>
+        </ul>
+        <div>
+            <li>abc</li>
+            <li>def</li>
+            <li>hij</li>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#animatedDiv > h1').hide();
+            $('#btn1').click(function () {
+                $('#animatedDiv').show(function () {
+                    $('#animatedDiv > h1').show(3000, function () {
+                        $('#btn1').fadeToggle();
+                    });
+                });
+            });
+
+            var sDiv = $('#animatedDiv2');
+            sDiv.animate({ height: '50px' });
+            $('#btn2').click(function () {
+                sDiv.animate({ height: '200px' }).css('background-color', 'blue');
+                sDiv.children().text("Big div");
+                sDiv.children().animate({ fontSize: '10rem', opacity: '0.4' }, "slow");
+            });
+
+            var p = $('#parent');
+            p.children('p').click(function () {
+                var listcontainer = p.children('div');
+                var list = listcontainer.children();
+                listcontainer.prev().append(list);
+                p.children().remove('div');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
