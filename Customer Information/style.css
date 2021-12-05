@@ -1,0 +1,19 @@
+#invalidEmailMsg{
+    color: red;
+    font-size: small;
+}
+#invalidPhoneMsg{
+    color: red;
+    font-size: small;
+}
+#list{
+    display: none;
+    border: 1px solid black;
+    padding: 2%;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+/* #customerimg{
+    height: 150px;
+    width: 40%;
+} */
